@@ -20,7 +20,7 @@ public class Gradation {
         }
         return con;
     }
-    public Gradation gra(){
+    public void gra(){
         Gradation c = new Gradation();
         con = c.getConnection();
         try{
@@ -41,7 +41,6 @@ public class Gradation {
 
         }
 
-        return gra;
     }
 
 }
