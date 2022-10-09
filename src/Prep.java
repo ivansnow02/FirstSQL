@@ -1,10 +1,9 @@
 import java.sql.*;
 
-public class Gradation {//顺序查询
+public class Prep {
     static Connection con;
-    static Statement sql;
+    static PreparedStatement sql;
     static ResultSet res;
-
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -20,14 +19,14 @@ public class Gradation {//顺序查询
         }
         return con;
     }
-
-    public void gra() {
-        Gradation c = new Gradation();
-        con = c.getConnection();
-        try {
-            sql = con.createStatement();
-            res = sql.executeQuery("select * from tb_user");
-            while (res.next()) {
+    public void pre(){//预处理
+        Prep p = new Prep();
+        con = p.getConnection();
+        try{
+            sql=con.prepareStatement("select * from tb_user where "+"id"+" = ?");
+            sql.setInt(1,2);
+            res = sql.executeQuery();
+            while(res.next()){
                 String id = res.getString("id");
                 String name = res.getString("name");
                 String age = res.getString("age");
@@ -37,11 +36,8 @@ public class Gradation {//顺序查询
                 System.out.printf("年龄：%s ", age);
                 System.out.println("性别：" + gender);
             }
-        } catch (Exception e) {
+        } catch (Exception e){
             e.printStackTrace();
-
         }
-
     }
-
 }
