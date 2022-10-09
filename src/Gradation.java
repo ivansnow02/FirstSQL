@@ -4,7 +4,6 @@ public class Gradation {
     static Connection con;
     static Statement sql;
     static ResultSet res;
-    static Gradation gra;
 
     public Connection getConnection() {
         try {
