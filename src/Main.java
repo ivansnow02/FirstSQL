@@ -6,5 +6,7 @@ public class Main {
         train.tra();
         Prep prep = new Prep();
         prep.pre();
+        Renewal renewal = new Renewal();
+        renewal.ren();
     }
 }

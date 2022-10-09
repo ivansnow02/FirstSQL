@@ -32,6 +32,7 @@ public class Gradation {//顺序查询
                 String name = res.getString("name");
                 String age = res.getString("age");
                 String gender = res.getString("gender");
+                System.out.println("查询成功！");
                 System.out.printf("编号：%s ", id);
                 System.out.printf("姓名：%s ", name);
                 System.out.printf("年龄：%s ", age);
