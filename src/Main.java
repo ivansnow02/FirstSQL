@@ -7,6 +7,6 @@ public class Main {
         Prep prep = new Prep();
         prep.pre();
         Renewal renewal = new Renewal();
-        renewal.ren();
+        renewal.ren(1);
     }
 }

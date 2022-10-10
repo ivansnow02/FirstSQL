@@ -12,7 +12,7 @@ public class Prep {
             e.printStackTrace();
         }
         try {
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/first_database?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "254940Sr");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/eating?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "254940Sr");
             System.out.println("数据库连接成功");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -27,15 +27,15 @@ public class Prep {
             sql.setInt(1,2);
             res = sql.executeQuery();
             while(res.next()){
-                String id = res.getString("id");
-                String name = res.getString("name");
-                String age = res.getString("age");
-                String gender = res.getString("gender");
+                int id = res.getInt("id");
+                String username = res.getString("username");
+                String email = res.getString("email");
+                String password = res.getString("password");
                 System.out.println("查询成功！");
                 System.out.printf("编号：%s ", id);
-                System.out.printf("姓名：%s ", name);
-                System.out.printf("年龄：%s ", age);
-                System.out.println("性别：" + gender);
+                System.out.printf("用户名：%s ", username);
+                System.out.printf("邮箱：%s ", email);
+                System.out.println("密码：" + password);
             }
         } catch (Exception e){
             e.printStackTrace();
