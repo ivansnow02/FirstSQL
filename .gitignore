@@ -28,4 +28,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-/com.sql/search/Train.cpp
+/com.sql/search/Train.java
