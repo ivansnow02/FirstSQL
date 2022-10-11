@@ -1,7 +1,5 @@
-import com.sql.Gradation;
-import com.sql.Random;
-import com.sql.Renewal;
-import com.sql.Prep;
+import com.sql.*;
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -16,6 +14,7 @@ public class Main {
             System.out.println("2、搜索");
             System.out.println("3、添加、修改、删除");
             System.out.println("4、随机取出一个食物");
+            System.out.println("5、收藏");
             try {
                 int flag = input.nextInt();
                 switch (flag) {
@@ -39,6 +38,10 @@ public class Main {
                     case 4 -> {
                         Random random = new Random();
                         random.rad();
+                    }
+                    case 5 -> {
+                        Favourite favourite = new Favourite();
+                        favourite.fav();
                     }
                 }
             } catch (InputMismatchException e1) {

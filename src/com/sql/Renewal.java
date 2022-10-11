@@ -6,33 +6,13 @@ import java.util.Scanner;
 public class Renewal {
     static Connection con;
     static PreparedStatement sql;
-
-    public Connection getConnection() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("数据库驱动加载成功");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/eating?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "254940Sr");
-            System.out.println("数据库连接成功");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return con;
-    }
-
     public void ren(int i) {
-        Renewal r = new Renewal();
-        con = r.getConnection();
+        con = Connect.getConnection();
         Scanner input = new Scanner(System.in);
         System.out.println("请选择你要操作的表:");
         System.out.println("1、用户表");
         System.out.println("2、食物表");
-
         int flag = input.nextInt();
-
         try {
             switch (flag) {
                 case 1 -> {

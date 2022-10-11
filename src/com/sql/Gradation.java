@@ -8,25 +8,8 @@ public class Gradation {//顺序查询
     static Statement sql;
     static ResultSet res;
 
-    public Connection getConnection() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("数据库驱动加载成功");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/eating?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "254940Sr");
-            System.out.println("数据库连接成功");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return con;
-    }
-
     public void gra() {
-        Gradation c = new Gradation();
-        con = c.getConnection();
+        con = Connect.getConnection();
         Scanner input = new Scanner(System.in);
         System.out.println("请选择你要查询的表:");
         System.out.println("1、用户表");
