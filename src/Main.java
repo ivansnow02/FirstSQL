@@ -1,4 +1,5 @@
 import com.sql.Gradation;
+import com.sql.Random;
 import com.sql.Renewal;
 import com.sql.Prep;
 
@@ -14,6 +15,7 @@ public class Main {
             System.out.println("1、查询");
             System.out.println("2、搜索");
             System.out.println("3、添加、修改、删除");
+            System.out.println("4、随机取出一个食物");
             try {
                 int flag = input.nextInt();
                 switch (flag) {
@@ -33,6 +35,10 @@ public class Main {
                         int choice = input.nextInt();
                         Renewal renewal = new Renewal();
                         renewal.ren(choice);
+                    }
+                    case 4 -> {
+                        Random random = new Random();
+                        random.rad();
                     }
                 }
             } catch (InputMismatchException e1) {
