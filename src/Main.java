@@ -22,12 +22,17 @@ public class Main {
                         gradation.gra();
                     }
                     case 2 -> {
-                                Prep prep = new Prep();
-                                prep.pre();
+                        Prep prep = new Prep();
+                        prep.pre();
                     }
                     case 3 -> {
+                        System.out.println("请选择操作：");
+                        System.out.println("1、添加");
+                        System.out.println("2、修改");
+                        System.out.println("3、删除");
+                        int choice = input.nextInt();
                         Renewal renewal = new Renewal();
-                        renewal.ren(2);
+                        renewal.ren(choice);
                     }
                 }
             } catch (InputMismatchException e1) {

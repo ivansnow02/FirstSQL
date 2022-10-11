@@ -43,7 +43,6 @@ public class Prep {
                     String word = input.next();
                     word = "'"+word+"'";
                     sql = con.prepareStatement("select * from tb_user where " + s + " = "+word);
-//                    sql.setString(1, );
                     res = sql.executeQuery();
                     while (res.next()) {
                         int id = res.getInt("id");
