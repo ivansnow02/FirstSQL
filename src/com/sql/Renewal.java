@@ -1,3 +1,4 @@
+package com.sql;
 import java.sql.*;
 
 public class Renewal {
@@ -23,8 +24,11 @@ public class Renewal {
     public void ren(int i ){
         Renewal r = new Renewal();
         con = r.getConnection();
+        int flag;
+
         try{
-            sql = con.prepareStatement("select * from tb_user");
+            sql = con.prepareStatement("select * from ?");
+            sql.setString(1,"tb_user");
             res = sql.executeQuery();
             System.out.println("执行操作前数据：");
             while(res.next()){
