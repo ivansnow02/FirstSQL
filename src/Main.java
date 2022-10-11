@@ -1,6 +1,6 @@
 import com.sql.Gradation;
 import com.sql.Renewal;
-import com.sql.search.Prep;
+import com.sql.Prep;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
