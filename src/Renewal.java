@@ -40,8 +40,8 @@ public class Renewal {
             }
             switch (i) {
                 case 1 -> {
-                    sql = con.prepareStatement("insert into tb_user value (?,?,?)");
-                    sql.setString(1, "菜");
+                    sql = con.prepareStatement("insert into tb_user (username,email,password) value (?,?,?)");
+                    sql.setString(1, "菜神");
                     sql.setString(2, "cai@email.com");
                     sql.setString(3, "123456");
                     sql.executeUpdate();//增加
@@ -54,25 +54,23 @@ public class Renewal {
 
                     //修改
                 }
-                case 3 -> {
-                    sql.executeUpdate("delete from tb_user where id = 4");
-                    sql.executeUpdate();
+                case 3 -> //删除
+                        sql.executeUpdate("delete from tb_user where id = 4");
 
-                    //删除
-                }
             }
+//            sql.executeUpdate();
             sql = con.prepareStatement("select * from tb_user");
             res = sql.executeQuery();
             System.out.println("执行操作后数据：");
             while(res.next()){
-                String id = res.getString("id");
-                String name = res.getString("name");
-                String age = res.getString("age");
-                String gender = res.getString("gender");
+                int id = res.getInt("id");
+                String username = res.getString("username");
+                String email = res.getString("email");
+                String password = res.getString("password");
                 System.out.printf("编号：%s ", id);
-                System.out.printf("姓名：%s ", name);
-                System.out.printf("年龄：%s ", age);
-                System.out.println("性别：" + gender);
+                System.out.printf("用户名：%s ", username);
+                System.out.printf("邮箱：%s ", email);
+                System.out.println("密码：" + password);
             }
         } catch (Exception e){
             e.printStackTrace();
