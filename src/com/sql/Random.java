@@ -11,8 +11,10 @@ public class Random {
         con = Connect.getConnection();
         try {
             sql = con.createStatement();
-            res = sql.executeQuery("select * from tb_food as t1 join (select round(rand()*（select max(id) from tb_food)) as id) as t2 where t1.id >= t2.id order by t1.id limit 1;");
+            res = sql.executeQuery("SELECT * FROM tb_food AS t1 JOIN (SELECT ROUND(RAND()*(SELECT MAX(id) " +
+                    "FROM tb_food)) AS id) AS t2 WHERE t1.id>=t2.id ORDER BY t1.id LIMIT 1;");
             System.out.println("查询成功！");
+            res.next();
             int id = res.getInt("id");
             String name = res.getString("name");
             String canteen = res.getString("canteen");
