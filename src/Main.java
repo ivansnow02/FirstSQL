@@ -15,6 +15,7 @@ public class Main {
             System.out.println("3、添加、修改、删除");
             System.out.println("4、随机取出一个食物");
             System.out.println("5、收藏");
+            System.out.println("6、筛选查询");
             try {
                 int flag = input.nextInt();
                 switch (flag) {
@@ -42,6 +43,10 @@ public class Main {
                     case 5 -> {
                         Favourite favourite = new Favourite();
                         favourite.fav();
+                    }
+                    case 6 -> {
+                        Group group = new Group();
+                        group.gro();
                     }
                 }
             } catch (InputMismatchException e1) {
