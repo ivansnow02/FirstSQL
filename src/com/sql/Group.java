@@ -21,7 +21,17 @@ public class Group {
             sql.setString(1, scanteen);
             sql.setString(2, sfloor);
             res = sql.executeQuery();
-
+            System.out.println("查询成功！");
+            while (res.next()) {
+                int id = res.getInt("id");
+                String name = res.getString("name");
+                String canteen = res.getString("canteen");
+                int floor = res.getInt("floor");
+                System.out.printf("编号：%s ", id);
+                System.out.printf("食物名：%s ", name);
+                System.out.printf("食堂：%s ", canteen);
+                System.out.println("楼层：" + floor);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
